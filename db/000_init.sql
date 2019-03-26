@@ -49,27 +49,6 @@ CREATE TABLE IF NOT EXISTS place_group
     INDEX(name)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
-CREATE TABLE IF NOT EXISTS kind_relation
-(
-    group_id INT NOT NULL,  
-    id INT NOT NULL,  
-    PRIMARY KEY(id, group_id)
-) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
-
-CREATE TABLE IF NOT EXISTS purpose_drelation
-(
-    group_id INT NOT NULL,  
-    id INT NOT NULL,  
-    PRIMARY KEY(id, group_id)
-) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
-
-CREATE TABLE IF NOT EXISTS place_relation
-(
-    group_id INT NOT NULL,  
-    id INT NOT NULL,  
-    PRIMARY KEY(id, group_id)
-) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
-
 CREATE TABLE IF NOT EXISTS balance
 (
     balance_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
