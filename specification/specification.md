@@ -45,3 +45,46 @@ purpose と place 属性は移動ができる。
 ## バックアップ
 
 毎日 0:50 に同じ LAN にある NAS に DB のバックアップをとる。
+
+NAS をマウントするコマンド。
+
+```
+sudo mount -t cifs //192.168.1.12/midas /mnt/nas -o username=rasp,password=password,iocharset=utf8,rw,uid=1000,gid=1000
+```
+
+マウントした NAS にバックアップをとるコマンド。
+
+```
+mysqldump --single-transaction -u midas_backup -ppassword midas > /mnt/nas/backup$(date +\%Y\%m\%d\%H\%M\%S).dump
+```
+
+バックアップのコマンドを動かす crontab の設定。
+
+```
+50 00 * * * /home/pi/midas/backup.sh 
+```
+
+## 集計
+
+集計用に毎月一日 0:55 に tsv を出力する。
+
+集計用のデータを取得する SQL.
+
+```
+SELECT * FROM balance
+LEFT JOIN kind ON kind.id = balance.kind_id
+LEFT JOIN purpose ON purpose.id = balance.purpose_id
+LEFT JOIN place ON place.id = balance.place_id
+```
+
+集計用のコマンド。
+
+```
+mysql -u midas_backup -ppassword midas < get_tsv.sql > /mnt/nas/tsv$(date +\%Y\%m\%d\%H\%M\%S).dump
+```
+
+集計用のコマンドを動かす crontab の設定。
+
+```
+55 00 1 * * /home/pi/midas/tsv.sh 
+```
