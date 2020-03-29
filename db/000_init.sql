@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS midas_sql_test CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-USE midas_sql_test;
+CREATE DATABASE IF NOT EXISTS midas CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
+USE midas;
 
 
 -- attribute_category
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS balance
     INDEX(purpose_id),
     INDEX(place_id),
     INDEX(date),
-    FOREIGN KEY (kind) REFERENCES kind(kind_id),
-    FOREIGN KEY (purpose) REFERENCES purpose(purpose_id),
-    FOREIGN KEY (place) REFERENCES place(place_id)
+    FOREIGN KEY (kind_id) REFERENCES kind(kind_id),
+    FOREIGN KEY (purpose_id) REFERENCES purpose(purpose_id),
+    FOREIGN KEY (place_id) REFERENCES place(place_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
