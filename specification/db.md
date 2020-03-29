@@ -2,7 +2,6 @@
 # DB のテーブルについて
 
 最終的に構成するものである。
-現時点では下記と違う箇所がある。
 
 ## 構成テーブル
 
@@ -31,7 +30,7 @@
 |カラム名|型|補足|インデックス|外部キー|説明|
 |---|---|---|---|---|---|
 |balance_id|INT|PRIMARY KEY|あり||主キー|
-|amount|INT|NOT NULL|あり||金額|
+|amount|INT|NOT NULL|なし||金額|
 |item|VARCHAR(50)|NOT NULL|なし||項目を記載する|
 |kind_id|INT|NOT NULL|あり|kind.kind_id|種別|
 |purpose_id|INT|NOT NULL|あり|purpose.purpose_id|目的|
