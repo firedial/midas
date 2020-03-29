@@ -42,6 +42,28 @@ purpose と place 属性は移動ができる。
 * 関係ない属性の値は 1 であること(place の移動なら kind_id = purpose_id = 1)
 * 日付は移動した日付を指定する
 
+## 初期レコード
+
+移動処理用の attribute レコード
+* attribute_id: 1
+* name: move
+* description: 移動
+* group_attribute_id: 1
+
+移動処理用の attribute_group レコード
+* attribute_group_id: 1
+* name: Move
+* description: 移動
+
+移動処理用の attribute_category レコード
+* attribute_category_id: 1
+* name: _move
+* description: 移動
+
+移動処理用の attribute_category_relation レコード
+* attribute_category_id: 1
+* attribute_id: 1
+
 ## バックアップ
 
 毎日 0:50 に同じ LAN にある NAS に DB のバックアップをとる。
