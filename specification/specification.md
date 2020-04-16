@@ -48,20 +48,20 @@ purpose と place 属性は移動ができる。
 * attribute_id: 1
 * name: move
 * description: 移動
-* group_attribute_id: 1
-
-移動処理用の attribute_group レコード
-* attribute_group_id: 1
-* name: Move
-* description: 移動
+* category_attribute_id: 1
 
 移動処理用の attribute_category レコード
 * attribute_category_id: 1
+* name: Move
+* description: 移動
+
+移動処理用の attribute_group レコード
+* attribute_group_id: 1
 * name: _move
 * description: 移動
 
-移動処理用の attribute_category_relation レコード
-* attribute_category_id: 1
+移動処理用の attribute_group_relation レコード
+* attribute_group_id: 1
 * attribute_id: 1
 
 ## バックアップ
