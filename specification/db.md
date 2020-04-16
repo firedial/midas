@@ -11,17 +11,17 @@
 |m_kind|種別のマスタテーブル|
 |m_purpose|目的のマスタテーブル|
 |m_place|場所のマスタテーブル|
-|m_kind_group|種別グループのマスタテーブル|
-|m_purpose_group|目的グループのマスタテーブル|
-|m_place_group|場所グループのマスタテーブル|
-|m_kind_category_relation|種別カテゴリーの関係テーブル|
-|m_purpose_category_relation|目的カテゴリーの関係テーブル|
-|m_place_category_relation|場所カテゴリーの関係テーブル|
 |m_kind_category|種別カテゴリーのマスタテーブル|
 |m_purpose_category|目的カテゴリーのマスタテーブル|
 |m_place_category|場所カテゴリーのマスタテーブル|
+|m_kind_group_relation|種別グループの関係テーブル|
+|m_purpose_group_relation|目的グループの関係テーブル|
+|m_place_group_relation|場所グループの関係テーブル|
+|m_kind_group|種別グループのマスタテーブル|
+|m_purpose_group|目的グループのマスタテーブル|
+|m_place_group|場所グループのマスタテーブル|
 
-※ kind, purpose, place をまとめて attribute (属性) という (x_group, x_category_relation, x_category も同様)
+※ kind, purpose, place をまとめて attribute (属性) という (x_category, x_group_relation, x_group も同様)
 
 ## 各テーブルの構成
 
@@ -44,28 +44,7 @@
 |attribute_id|INT|PRIMARY KEY|あり||主キー|
 |attribute_name|VARCHAR(20)|NOT NULL, UNIQUE|あり||識別するための名前|
 |attribute_description|VARCHAR(20)|NOT NULL|なし||概要|
-|attribute_group_id|INT|NOT NULL|あり|attribute_group.attribute_group_id|属性グループ名|
-
-※ attribute の部分は kind, purpose, place のどれかに読み替えること
-
-### m_attribute_group
-
-|カラム名|型|補足|インデックス|外部キー|説明|
-|---|---|---|---|---|---|
-|attribute_group_id|INT|PRIMARY KEY|あり||主キー|
-|attribute_group_name|VARCHAR(20)|NOT NULL, UNIQUE|あり||識別するための名前|
-|attribute_group_description|VARCHAR(20)|NOT NULL|なし||概要|
-
-※ attribute の部分は kind, purpose, place のどれかに読み替えること
-
-### m_attribute_category_relation
-
-|カラム名|型|補足|インデックス|外部キー|説明|
-|---|---|---|---|---|---|
-|attribute_category_id|INT|MUL KEY|あり(注)|attribute_category.attribute_category_id|複合主キー|
-|attribute_id|INT|MUL KEY|あり(注)|attribute.attribute_id|複合主キー|
-
-(注) 2カラムのインデックスで順番を入れかえたものを2つ作成する
+|attribute_category_id|INT|NOT NULL|あり|attribute_category.attribute_category_id|属性グループ名|
 
 ※ attribute の部分は kind, purpose, place のどれかに読み替えること
 
@@ -76,6 +55,27 @@
 |attribute_category_id|INT|PRIMARY KEY|あり||主キー|
 |attribute_category_name|VARCHAR(20)|NOT NULL, UNIQUE|あり||識別するための名前|
 |attribute_category_description|VARCHAR(20)|NOT NULL|なし||概要|
+
+※ attribute の部分は kind, purpose, place のどれかに読み替えること
+
+### m_attribute_group_relation
+
+|カラム名|型|補足|インデックス|外部キー|説明|
+|---|---|---|---|---|---|
+|attribute_group_id|INT|MUL KEY|あり(注)|attribute_group.attribute_group_id|複合主キー|
+|attribute_id|INT|MUL KEY|あり(注)|attribute.attribute_id|複合主キー|
+
+(注) 2カラムのインデックスで順番を入れかえたものを2つ作成する
+
+※ attribute の部分は kind, purpose, place のどれかに読み替えること
+
+### m_attribute_group
+
+|カラム名|型|補足|インデックス|外部キー|説明|
+|---|---|---|---|---|---|
+|attribute_group_id|INT|PRIMARY KEY|あり||主キー|
+|attribute_group_name|VARCHAR(20)|NOT NULL, UNIQUE|あり||識別するための名前|
+|attribute_group_description|VARCHAR(20)|NOT NULL|なし||概要|
 
 ※ attribute の部分は kind, purpose, place のどれかに読み替えること
 
