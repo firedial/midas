@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS m_place_category
     INDEX(place_category_name)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
--- m_attribute
+-- m_attribute_element
 CREATE TABLE IF NOT EXISTS m_kind_element
 (
     kind_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
