@@ -53,9 +53,9 @@ CREATE TABLE IF NOT EXISTS m_place_category
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- m_attribute
-CREATE TABLE IF NOT EXISTS m_kind
+CREATE TABLE IF NOT EXISTS m_kind_element
 (
-    kind_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
+    kind_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
     kind_name VARCHAR(20) NOT NULL UNIQUE,
     kind_description VARCHAR(20) NOT NULL,
 	kind_category_id INT NOT NULL,
@@ -64,9 +64,9 @@ CREATE TABLE IF NOT EXISTS m_kind
     FOREIGN KEY (kind_category_id) REFERENCES m_kind_category(kind_category_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
-CREATE TABLE IF NOT EXISTS m_purpose
+CREATE TABLE IF NOT EXISTS m_purpose_element
 (
-    purpose_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
+    purpose_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
     purpose_name VARCHAR(20) NOT NULL UNIQUE,
     purpose_description VARCHAR(20) NOT NULL,
 	purpose_category_id INT NOT NULL,
@@ -75,9 +75,9 @@ CREATE TABLE IF NOT EXISTS m_purpose
     FOREIGN KEY (purpose_category_id) REFERENCES m_purpose_category(purpose_category_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
-CREATE TABLE IF NOT EXISTS m_place
+CREATE TABLE IF NOT EXISTS m_place_element
 (
-    place_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
+    place_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
     place_name VARCHAR(20) NOT NULL UNIQUE,
     place_description VARCHAR(20) NOT NULL,
 	place_category_id INT NOT NULL,
@@ -91,34 +91,34 @@ CREATE TABLE IF NOT EXISTS m_place
 CREATE TABLE IF NOT EXISTS m_kind_group_relation
 (
     kind_group_id INT NOT NULL,  
-    kind_id INT NOT NULL,  
-    INDEX(kind_group_id, kind_id),
-    INDEX(kind_id, kind_group_id),
-    PRIMARY KEY(kind_group_id, kind_id),
+    kind_element_id INT NOT NULL,  
+    INDEX(kind_group_id, kind_element_id),
+    INDEX(kind_element_id, kind_group_id),
+    PRIMARY KEY(kind_group_id, kind_element_id),
     FOREIGN KEY (kind_group_id) REFERENCES m_kind_group(kind_group_id),
-    FOREIGN KEY (kind_id) REFERENCES m_kind(kind_id)
+    FOREIGN KEY (kind_element_id) REFERENCES m_kind_element(kind_element_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
 CREATE TABLE IF NOT EXISTS m_purpose_group_relation
 (
     purpose_group_id INT NOT NULL,  
-    purpose_id INT NOT NULL,  
-    INDEX(purpose_group_id, purpose_id),
-    INDEX(purpose_id, purpose_group_id),
-    PRIMARY KEY(purpose_group_id, purpose_id),
+    purpose_element_id INT NOT NULL,  
+    INDEX(purpose_group_id, purpose_element_id),
+    INDEX(purpose_element_id, purpose_group_id),
+    PRIMARY KEY(purpose_group_id, purpose_element_id),
     FOREIGN KEY (purpose_group_id) REFERENCES m_purpose_group(purpose_group_id),
-    FOREIGN KEY (purpose_id) REFERENCES m_purpose(purpose_id)
+    FOREIGN KEY (purpose_element_id) REFERENCES m_purpose_element(purpose_element_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
 CREATE TABLE IF NOT EXISTS m_place_group_relation
 (
     place_group_id INT NOT NULL,  
-    place_id INT NOT NULL,  
-    INDEX(place_group_id, place_id),
-    INDEX(place_id, place_group_id),
-    PRIMARY KEY(place_group_id, place_id),
+    place_element_id INT NOT NULL,  
+    INDEX(place_group_id, place_element_id),
+    INDEX(place_element_id, place_group_id),
+    PRIMARY KEY(place_group_id, place_element_id),
     FOREIGN KEY (place_group_id) REFERENCES m_place_group(place_group_id),
-    FOREIGN KEY (place_id) REFERENCES m_place(place_id)
+    FOREIGN KEY (place_element_id) REFERENCES m_place_element(place_element_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- m_balance
@@ -127,15 +127,15 @@ CREATE TABLE IF NOT EXISTS m_balance
     balance_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
     amount INT NOT NULL,
     item VARCHAR(50) NOT NULL,
-    kind_id INT NOT NULL,
-    purpose_id INT NOT NULL,
-    place_id INT NOT NULL,
+    kind_element_id INT NOT NULL,
+    purpose_element_id INT NOT NULL,
+    place_element_id INT NOT NULL,
     date DATE NOT NULL,
-    INDEX(kind_id),
-    INDEX(purpose_id),
-    INDEX(place_id),
+    INDEX(kind_element_id),
+    INDEX(purpose_element_id),
+    INDEX(place_element_id),
     INDEX(date),
-    FOREIGN KEY (kind_id) REFERENCES m_kind(kind_id),
-    FOREIGN KEY (purpose_id) REFERENCES m_purpose(purpose_id),
-    FOREIGN KEY (place_id) REFERENCES m_place(place_id)
+    FOREIGN KEY (kind_element_id) REFERENCES m_kind_element(kind_element_id),
+    FOREIGN KEY (purpose_element_id) REFERENCES m_purpose_element(purpose_element_id),
+    FOREIGN KEY (place_element_id) REFERENCES m_place_element(place_element_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
