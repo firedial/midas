@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS m_kind_element
     kind_element_name VARCHAR(20) NOT NULL UNIQUE,
     kind_element_description VARCHAR(20) NOT NULL,
 	kind_category_id INT NOT NULL,
-    INDEX(kind_name),
+    INDEX(kind_element_name),
     INDEX(kind_category_id),
     FOREIGN KEY (kind_category_id) REFERENCES m_kind_category(kind_category_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS m_purpose_element
     purpose_element_name VARCHAR(20) NOT NULL UNIQUE,
     purpose_element_description VARCHAR(20) NOT NULL,
 	purpose_category_id INT NOT NULL,
-    INDEX(purpose_name),
+    INDEX(purpose_element_name),
     INDEX(purpose_category_id),
     FOREIGN KEY (purpose_category_id) REFERENCES m_purpose_category(purpose_category_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS m_place_element
     place_element_name VARCHAR(20) NOT NULL UNIQUE,
     place_element_description VARCHAR(20) NOT NULL,
 	place_category_id INT NOT NULL,
-    INDEX(place_name),
+    INDEX(place_element_name),
     INDEX(place_category_id),
     FOREIGN KEY (place_category_id) REFERENCES m_place_category(place_category_id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8mb4 COLLATE=utf8mb4_bin;
