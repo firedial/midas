@@ -56,8 +56,8 @@ CREATE TABLE IF NOT EXISTS m_place_category
 CREATE TABLE IF NOT EXISTS m_kind_element
 (
     kind_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
-    kind_name VARCHAR(20) NOT NULL UNIQUE,
-    kind_description VARCHAR(20) NOT NULL,
+    kind_element_name VARCHAR(20) NOT NULL UNIQUE,
+    kind_element_description VARCHAR(20) NOT NULL,
 	kind_category_id INT NOT NULL,
     INDEX(kind_name),
     INDEX(kind_category_id),
@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS m_kind_element
 CREATE TABLE IF NOT EXISTS m_purpose_element
 (
     purpose_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
-    purpose_name VARCHAR(20) NOT NULL UNIQUE,
-    purpose_description VARCHAR(20) NOT NULL,
+    purpose_element_name VARCHAR(20) NOT NULL UNIQUE,
+    purpose_element_description VARCHAR(20) NOT NULL,
 	purpose_category_id INT NOT NULL,
     INDEX(purpose_name),
     INDEX(purpose_category_id),
@@ -78,8 +78,8 @@ CREATE TABLE IF NOT EXISTS m_purpose_element
 CREATE TABLE IF NOT EXISTS m_place_element
 (
     place_element_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,  
-    place_name VARCHAR(20) NOT NULL UNIQUE,
-    place_description VARCHAR(20) NOT NULL,
+    place_element_name VARCHAR(20) NOT NULL UNIQUE,
+    place_element_description VARCHAR(20) NOT NULL,
 	place_category_id INT NOT NULL,
     INDEX(place_name),
     INDEX(place_category_id),
