@@ -8,9 +8,9 @@
 |テーブル名|説明|
 |---|---|
 |m_balance|収支を管理するテーブル|
-|m_kind|種別のマスタテーブル|
-|m_purpose|目的のマスタテーブル|
-|m_place|場所のマスタテーブル|
+|m_kind_element|種別のマスタテーブル|
+|m_purpose_element|目的のマスタテーブル|
+|m_place_element|場所のマスタテーブル|
 |m_kind_category|種別カテゴリーのマスタテーブル|
 |m_purpose_category|目的カテゴリーのマスタテーブル|
 |m_place_category|場所カテゴリーのマスタテーブル|
@@ -32,9 +32,9 @@
 |balance_id|INT|PRIMARY KEY|あり||主キー|
 |amount|INT|NOT NULL|なし||金額|
 |item|VARCHAR(50)|NOT NULL|なし||項目を記載する|
-|kind_id|INT|NOT NULL|あり|m_kind.kind_id|種別|
-|purpose_id|INT|NOT NULL|あり|m_purpose.purpose_id|目的|
-|place_id|INT|NOT NULL|あり|m_place.place_id|場所|
+|kind_element_id|INT|NOT NULL|あり|m_kind_element.kind_element_id|種別|
+|purpose_element_id|INT|NOT NULL|あり|m_purpose_element.purpose_element_id|目的|
+|place_element_id|INT|NOT NULL|あり|m_place_element.place_element_id|場所|
 |date|DATE|NOT NULL|あり||収支が発生した日付|
 
 ### m_attribute
