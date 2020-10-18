@@ -87,4 +87,4 @@
 
 ## ER 図
 
-![erd](https://user-images.githubusercontent.com/42674772/79457032-76e62f00-802a-11ea-8905-fe6dc8282be0.png)
+![erd](https://user-images.githubusercontent.com/42674772/96359066-3a1a0280-1149-11eb-9e2a-95ef2bd7df16.png)
