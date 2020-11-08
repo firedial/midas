@@ -1,0 +1,33 @@
+version: '3.3'
+services:
+    konata:
+        build: ./midas-konata
+        ports:
+         - "3123:80"
+        volumes:
+         - ./midas-konata/conf.d/:/etc/nginx/conf.d
+        # depends_on:
+        # - nagisa
+        # - misuzu
+    nagisa:
+        build: ./midas-nagisa
+        expose:
+         - "8000"
+        hostname: nagisa
+    misuzu:
+        build: ./midas-misuzu
+        expose:
+            - "8080"
+        hostname: misuzu
+    #     depends_on:
+    #      - yui
+    yui:
+        build: ./midas-yui
+        restart: always 
+        volumes:
+            - ./midas-yui/initdb.d:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ROOT_PASSWORD: pass
+        hostname: yui
+
+

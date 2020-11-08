@@ -1,0 +1,6 @@
+[submodule "midas-nagisa"]
+	path = midas-nagisa
+	url = https://github.com/firedial/midas-nagisa.git
+[submodule "midas-misuzu"]
+	path = midas-misuzu
+	url = https://github.com/firedial/midas-misuzu.git
