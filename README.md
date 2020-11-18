@@ -19,15 +19,3 @@ $ cd midas
 $ docker-compose -f docker-compose.yml -f docker-compose_rasp.yml up -d
 ```
 
-## 構成
-
-### API サーバー
-
-GO で作成。
-https://github.com/firedial/midas-go
-
-### フロント
-
-Elm で作成。
-https://github.com/firedial/midas-elm
-
