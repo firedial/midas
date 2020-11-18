@@ -1,0 +1,10 @@
+services:
+    nagisa:
+        build:
+            dockerfile: Dockerfile_rasp
+    misuzu:
+    yui:
+        build:
+            dockerfile: Dockerfile_rasp
+
+
