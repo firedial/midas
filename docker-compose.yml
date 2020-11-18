@@ -10,7 +10,9 @@ services:
          - nagisa
          - misuzu
     nagisa:
-        build: ./midas-nagisa
+        build:
+            context: ./midas-nagisa
+            dockerfile: Dockerfile
         expose:
          - "8000"
         hostname: nagisa
@@ -22,7 +24,9 @@ services:
     #     depends_on:
     #      - yui
     yui:
-        build: ./midas-yui
+        build:
+            context: ./midas-yui
+            dockerfile: Dockerfile
         restart: always 
         volumes:
             - ./midas-yui/initdb.d:/docker-entrypoint-initdb.d
