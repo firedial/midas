@@ -1,2 +1,2 @@
-FROM mysql:8.0.18
+FROM mysql/mysql-server:8.0
 
