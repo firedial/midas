@@ -7,6 +7,7 @@
 ### ローカルでの実行
 
 ```
+$ git clone --recursive https://github.com/firedial/midas.git
 $ cd midas
 $ docker-compose up -d
 ```
@@ -14,6 +15,7 @@ $ docker-compose up -d
 ### ラズパイでの実行
 
 ```
+$ git clone --recursive https://github.com/firedial/midas.git
 $ cd midas
 # midas-nagisa を elm でコンパイル
 $ docker-compose -f docker-compose.yml -f docker-compose_rasp.yml up -d
