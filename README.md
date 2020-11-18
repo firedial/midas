@@ -7,13 +7,16 @@
 ### ローカルでの実行
 
 ```
+$ cd midas
 $ docker-compose up -d
 ```
 
 ### ラズパイでの実行
 
 ```
-$ docker-compose -f docker-compose.yml -f docker-compose_rasp.yml  up -d
+$ cd midas
+# midas-nagisa を elm でコンパイル
+$ docker-compose -f docker-compose.yml -f docker-compose_rasp.yml up -d
 ```
 
 ## 構成
