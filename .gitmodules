@@ -4,3 +4,6 @@
 [submodule "midas-misuzu"]
 	path = midas-misuzu
 	url = https://github.com/firedial/midas-misuzu.git
+[submodule "midas-eru"]
+	path = midas-eru
+	url = https://github.com/firedial/midas-eru.git
