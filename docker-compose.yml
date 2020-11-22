@@ -9,6 +9,7 @@ services:
         depends_on:
          - nagisa
          - misuzu
+         - eru
     nagisa:
         build:
             context: ./midas-nagisa
@@ -21,6 +22,11 @@ services:
         expose:
             - "8080"
         hostname: misuzu
+    eru:
+        build: ./midas-eru
+        expose:
+            - "8080"
+        hostname: eru
     #     depends_on:
     #      - yui
     yui:
