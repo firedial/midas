@@ -25,8 +25,12 @@ services:
     eru:
         build: ./midas-eru
         expose:
-            - "8080"
+         - "8080"
         hostname: eru
+        command: "npm run start"
+        volumes:
+            - ./midas-eru:/app
+            - /app/node_modules
     #     depends_on:
     #      - yui
     yui:
