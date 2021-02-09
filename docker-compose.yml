@@ -29,8 +29,8 @@ services:
         hostname: eru
         command: "npm run start"
         volumes:
-            - ./midas-eru:/app
-            - /app/node_modules
+         - ./midas-eru:/app
+         - node_modules:/app/node_modules
     #     depends_on:
     #      - yui
     yui:
@@ -43,5 +43,7 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD: pass
         hostname: yui
+volumes:
+    node_modules:
 
 
