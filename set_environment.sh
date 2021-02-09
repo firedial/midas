@@ -4,5 +4,5 @@
 . ./Environment
 
 # eru
-sed -i -e "s|API_URL:.*|API_URL: '\"$API_URL\"'|" ./midas-eru/config/dev.env.js
+sed -i '' -e "s|API_URL:.*|API_URL: '\"$API_URL\"'|" ./midas-eru/config/dev.env.js
 
