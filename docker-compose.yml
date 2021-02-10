@@ -24,8 +24,11 @@ services:
     misuzu:
         build: ./midas-misuzu
         expose:
-            - "8080"
+         - "8080"
         hostname: misuzu
+        command: sh -c "go build ./main.go && ./main"
+        volumes:
+         - ./midas-misuzu:/go/src/github.com/firedial/midas-misuzu
     eru:
         build: ./midas-eru
         expose:
