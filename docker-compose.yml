@@ -17,6 +17,10 @@ services:
         expose:
          - "8000"
         hostname: nagisa
+        command: sh -c "elm make src/Main.elm --output=main.js && elm reactor"
+        volumes:
+         - ./midas-nagisa:/app
+         - nagisa_node_modules:/app/node_modules
     misuzu:
         build: ./midas-misuzu
         expose:
@@ -30,7 +34,7 @@ services:
         command: "npm run start"
         volumes:
          - ./midas-eru:/app
-         - node_modules:/app/node_modules
+         - eru_node_modules:/app/node_modules
     #     depends_on:
     #      - yui
     yui:
@@ -44,6 +48,7 @@ services:
             MYSQL_ROOT_PASSWORD: pass
         hostname: yui
 volumes:
-    node_modules:
+    eru_node_modules:
+    nagisa_node_modules:
 
 
