@@ -5,6 +5,8 @@ API_URL=http://localhost:3123/misuzu/api/v1
 
 DB_HOST=yui
 
+DB_ROOT_PASS=pass
+
 DB_CR_USER=root
 DB_CR_PASS=pass
 

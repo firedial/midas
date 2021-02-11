@@ -45,8 +45,7 @@ services:
             context: ./midas-yui
             dockerfile: Dockerfile
         restart: always 
-        environment:
-            MYSQL_ROOT_PASSWORD: pass
+        env_file: ./midas-yui/.db_environment.env
         hostname: yui
         volumes:
          - db:/var/lib/mysql

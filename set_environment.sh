@@ -17,3 +17,7 @@ sed -i '' -e "s|const DB_USER.*|const DB_USER = \"$DB_CR_USER\"|" ./midas-misuzu
 sed -i '' -e "s|const DB_PASSWORD.*|const DB_PASSWORD = \"$DB_CR_PASS\"|" ./midas-misuzu/config/env.go
 sed -i '' -e "s|const IS_PRODUCTION.*|const IS_PRODUCTION = $IS_PRODUCTION|" ./midas-misuzu/config/env.go
 
+# yui
+cp ./midas-yui/.db_environment.env.sample ./midas-yui/.db_environment.env
+sed -i '' -e "s|MYSQL_ROOT_PASSWORD=.*|MYSQL_ROOT_PASSWORD=$DB_ROOT_PASS|" ./midas-yui/.db_environment.env
+
