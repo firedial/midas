@@ -9,6 +9,8 @@
 ```
 $ git clone --recursive https://github.com/firedial/midas.git
 $ cd midas
+# 必要なら Environment を書き換える
+$ sh ./set_environment.sh
 $ docker-compose up -d
 ```
 
