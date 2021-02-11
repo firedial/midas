@@ -20,4 +20,13 @@ sed -i '' -e "s|const IS_PRODUCTION.*|const IS_PRODUCTION = $IS_PRODUCTION|" ./m
 # yui
 cp ./midas-yui/.db_environment.env.sample ./midas-yui/.db_environment.env
 sed -i '' -e "s|MYSQL_ROOT_PASSWORD=.*|MYSQL_ROOT_PASSWORD=$DB_ROOT_PASS|" ./midas-yui/.db_environment.env
+sed -i '' -e "s|DB_MIDAS_ROOT_USER=.*|DB_MIDAS_ROOT_USER=$DB_MIDAS_ROOT_USER|" ./midas-yui/.db_environment.env
+sed -i '' -e "s|DB_MIDAS_ROOT_PASS=.*|DB_MIDAS_ROOT_PASS=$DB_MIDAS_ROOT_PASS|" ./midas-yui/.db_environment.env
 
+sed -i '' -e "s|DB_MIDAS_API_USER=.*|DB_MIDAS_API_USER=$DB_MIDAS_API_USER|" ./midas-yui/.db_environment.env
+sed -i '' -e "s|DB_MIDAS_API_PASS=.*|DB_MIDAS_API_PASS=$DB_MIDAS_API_PASS|" ./midas-yui/.db_environment.env
+
+sed -i '' -e "s|DB_MIDAS_BACKUP_USER=.*|DB_MIDAS_BACKUP_USER=$DB_MIDAS_BACKUP_USER|" ./midas-yui/.db_environment.env
+sed -i '' -e "s|DB_MIDAS_BACKUP_PASS=.*|DB_MIDAS_BACKUP_PASS=$DB_MIDAS_BACKUP_PASS|" ./midas-yui/.db_environment.env
+
+sed -i '' -e "s|DB_DATABASE_NAME=.*|DB_DATABASE_NAME=$DB_DATABASE_NAME|" ./midas-yui/.db_environment.env
