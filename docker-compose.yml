@@ -45,13 +45,14 @@ services:
             context: ./midas-yui
             dockerfile: Dockerfile
         restart: always 
-        volumes:
-            - ./midas-yui/initdb.d:/docker-entrypoint-initdb.d
         environment:
             MYSQL_ROOT_PASSWORD: pass
         hostname: yui
+        volumes:
+         - db:/var/lib/mysql
 volumes:
     eru_node_modules:
     nagisa_node_modules:
+    db:
 
 
