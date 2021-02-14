@@ -29,3 +29,23 @@
 |GET|/api/v1/purpose/|purpose テーブルに入っているものを JSON 形式で返す|
 |GET|/api/v1/place/|place テーブルに入っているものを JSON 形式で返す|
 
+
+# 案
+
+JSON は次のように返す
+
+```
+{
+    "status": "OK"
+    "message": ""
+    "data": [values...]
+}
+```
+
+```
+{
+    "status": "EROOR"
+    "message": "DB error!"
+    "data": []
+}
+```
