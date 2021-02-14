@@ -1,6 +1,3 @@
-CREATE DATABASE IF NOT EXISTS midas CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
-USE midas;
-
 
 -- m_attribute_group
 CREATE TABLE IF NOT EXISTS m_kind_group
