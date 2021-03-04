@@ -1,8 +1,13 @@
 services:
+    konata:
+        ports:
+        - "80:80"
+        volumes:
+         - ./midas-konata/conf_prod.d/:/etc/nginx/conf.d
     nagisa:
         build:
             dockerfile: Dockerfile_rasp
-    misuzu:
+        command: "httpd-foreground"
     yui:
         build:
             dockerfile: Dockerfile_rasp
