@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>midas</title>
+        <meta charset="UTF-8"/>
+        
+        <script language="javascript" type="text/javascript">
+            function authentication() {
+                var pass = document.getElementById("pass").value;
+                var xhr = new XMLHttpRequest(); 
+                
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            var result = JSON.parse(xhr.responseText);
+                            document.cookie = "auth_token=" + result.data + "; path=/";
+                            document.getElementById("pass").value = "";
+                        }
+                    }
+                }
+                xhr.open("POST", "./misuzu/api/v1/authentication/");
+                xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+                xhr.send('pass=' + encodeURIComponent(pass));
+            }
+        </script>
+
+        <style type="text/css">
+            * {
+                background-color: #FBD8B5
+            } 
+            a:link { color:#0000ff; text-decoration:none }
+            a:visited { color:#0000ff; text-decoration:none }
+            a:hover { color:#0000ff; text-decoration:none }
+            a:active { color:#0000ff; text-decoration:none }
+
+            div.box {
+                display: inline-block;
+                width: 300px;
+                height: 300px;
+                margin: 60px;
+            }
+            div.box a {
+                display: block;
+                background-color: #F7B977;
+                width: 300px;
+                height: 300px;
+                line-height: 300px;
+                text-align: center;
+                font-size: 60px;
+                color: #ED6D3D;
+            }
+            div.box a:hover {
+                background-color: #F6AD48;
+            }
+            div.link {
+                text-align: center;
+            }
+            div.auth {
+                display: block;
+                background-color: #F7B977;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="link">
+            <div class="box">
+                <a href="./nagisa/index.html">入力</a>
+            </div>
+            <div class="box">
+                <a href="./eru/#/Main">分析</a>
+            </div>
+        </div>
+        <div class="auth">
+            <input type="password" id="pass" name="pass"/>
+            <input value="認証" type="button" onclick="authentication();"/>
+        </div>
+    </body>
+</html>
+

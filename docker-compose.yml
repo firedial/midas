@@ -6,6 +6,7 @@ services:
          - "3123:80"
         volumes:
          - ./midas-konata/conf.d/:/etc/nginx/conf.d
+         - ./midas-konata/html/:/etc/nginx/html
         depends_on:
          - nagisa
          - misuzu
