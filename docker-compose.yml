@@ -50,6 +50,13 @@ services:
         hostname: yui
         volumes:
          - db:/var/lib/mysql
+    rikka:
+        build: ./midas-rikka
+        env_file: ./midas-rikka/.env
+        volumes:
+         - ./midas-rikka:/home/backup
+        privileged: true
+        tty: true
 volumes:
     eru_node_modules:
     nagisa_node_modules:
