@@ -54,7 +54,7 @@ services:
         build: ./midas-rikka
         env_file: ./midas-rikka/.env
         volumes:
-         - ./midas-rikka:/home/backup
+         - ./midas-rikka:/home/root
         privileged: true
         tty: true
 volumes:

@@ -1,2 +1,2 @@
 
-9 13 * * * /home/backup/backup.sh 
+9 13 * * * /home/root/backup.sh 
