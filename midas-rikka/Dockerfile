@@ -10,4 +10,5 @@ USER backup
 RUN sudo mkdir /mnt/nas \
     && sudo chown backup:backup /mnt/nas
 
-RUN sudo apk add mariadb-client
+RUN sudo apk add mariadb-dev \
+    && sudo apk add mariadb-client
