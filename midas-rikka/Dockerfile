@@ -1,14 +1,11 @@
 FROM alpine:3.13.2
 
-RUN apk add sudo
-RUN addgroup -S backup \ 
-    && adduser -S backup -G backup \
-    && echo "backup ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
-    && echo "backup:test" | chpasswd
-USER backup
+RUN apk --update add tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
+    apk del tzdata && \
+    rm -rf /var/cache/apk/* 
 
-RUN sudo mkdir /mnt/nas \
-    && sudo chown backup:backup /mnt/nas
+RUN mkdir /mnt/nas
 
-RUN sudo apk add mariadb-dev \
-    && sudo apk add mariadb-client
+RUN apk add mariadb-dev \
+    && apk add mariadb-client
