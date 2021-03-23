@@ -1,2 +1,2 @@
 
-9 13 * * * /home/root/backup.sh 
+55 22 * * * /home/root/batch.sh /home/root/backup.sh 

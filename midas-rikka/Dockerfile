@@ -9,3 +9,5 @@ RUN mkdir /mnt/nas
 
 RUN apk add mariadb-dev \
     && apk add mariadb-client
+
+RUN apk add curl
