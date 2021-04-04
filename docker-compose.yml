@@ -50,6 +50,7 @@ services:
         env_file: ./midas-yui/.db_environment.env
         hostname: yui
         volumes:
+         - ./midas-yui:/app
          - db:/var/lib/mysql
     rikka:
         build: ./midas-rikka
